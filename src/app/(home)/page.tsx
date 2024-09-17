@@ -7,31 +7,6 @@ import BannerSale from "./components/banner-sale";
 import PreviewProducts from "./components/preview-products";
 import StantOutProducts from "./components/stand-out-products";
 import News from "./components/news";
-import MoreInfo from "./components/more-info";
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
-
-/* eslint-disable @next/next/no-img-element */
 
 export default function Home() {
   return (
@@ -74,8 +49,6 @@ export default function Home() {
         products={[]}
       />
       <News title="Tin tức mới nhất" data={[]}/>
-
-      <MoreInfo data={[]}/>
     </>
   );
 }

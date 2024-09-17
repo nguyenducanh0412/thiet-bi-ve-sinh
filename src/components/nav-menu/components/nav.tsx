@@ -82,11 +82,20 @@ const NavMenu = () => {
 
   return (
     <>
-      <nav data-aos="fade" className="bg-red-600 text-white md:flex lg:h-[9rem] lg:items-center relative">
+      <nav
+        // data-aos="fade"
+        className="bg-red-600 text-white md:flex lg:h-[9rem] lg:items-center relative"
+      >
         <div className="container mx-auto px-4 py-2">
           <div className=" flex items-center justify-between">
             <Link href="/" className="text-2xl font-bold mr-4">
-              <Image className="!min-w-[10rem] !w-[14rem] !lg:w-[16rem]" src="/home-logo.svg" alt="logo" width={160} height={40} />
+              <Image
+                className="!min-w-[10rem] !w-[14rem] !lg:w-[16rem]"
+                src="/home-logo.svg"
+                alt="logo"
+                width={160}
+                height={40}
+              />
             </Link>
 
             {/* Mobile menu button */}
@@ -202,10 +211,9 @@ const NavMenu = () => {
                   </NavigationMenuItem>
                   <NavigationMenuItem>
                     <Link href="/docs" legacyBehavior passHref>
-                      
-                        <NavigationMenuTrigger>
-                            Sản phẩm khác
-                        </NavigationMenuTrigger>
+                      <NavigationMenuTrigger>
+                        Sản phẩm khác
+                      </NavigationMenuTrigger>
                     </Link>
                   </NavigationMenuItem>
                 </NavigationMenuList>
@@ -214,7 +222,7 @@ const NavMenu = () => {
 
             {/* Search and Icons */}
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="ghost" size="icon" onClick={() => setOpenBoxSearch(true)}>
+            <Button variant="ghost" size="icon" onClick={() => setOpenBoxSearch(true)}>
                 <Search className="w-[1.6rem] h-[1.6rem]" />
               </Button>
               <Button variant="ghost" size="icon">
@@ -222,7 +230,7 @@ const NavMenu = () => {
               </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger>
-                    <User className="w-[1.6rem] h-[1.6rem]" />
+                  <User className="w-[1.6rem] h-[1.6rem]" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
@@ -235,8 +243,6 @@ const NavMenu = () => {
               </DropdownMenu>
             </div>
           </div>
-
-          
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
@@ -262,15 +268,18 @@ const NavMenu = () => {
               <div className="flex items-center relative mt-4">
                 <Search className="absolute left-6 top-[1.4rem] w-[1.4rem] h-[1.4rem] text-[#7C7C7C]" />
                 <div className="w-full m-4">
-                <Input
+                  <Input
                     className="bg-[#f6f6f6] text-black pl-8"
                     placeholder="Tìm kiếm..."
                     value={keyword}
                     onChange={(e) => setKeyword(e.target.value)}
                     onKeyDown={handleSearch}
-                />
+                  />
                 </div>
-                <X className="absolute right-6 top-[1.4rem] w-[1.4rem] h-[1.4rem] text-[#7C7C7C]" onClick={handleClearSearch}/>
+                <X
+                  className="absolute right-6 top-[1.4rem] w-[1.4rem] h-[1.4rem] text-[#7C7C7C]"
+                  onClick={handleClearSearch}
+                />
               </div>
               <div className="flex justify-start mt-4">
                 <Button variant="ghost" size="icon">
@@ -285,24 +294,36 @@ const NavMenu = () => {
         </div>
 
         {/* Box search on pc */}
-        {
-            openBoxSearch && (
-              <div style={{boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.1)'}} className="box-search h-[8.4rem] absolute bottom-[-8.4rem] left-0 right-0 flex justify-center items-center bg-white z-[999] gap-16">
-                <div className="flex items-center relative w-[60%] h-[4.4rem] bg-[#f6f6f6] rounded-[2.8rem]">
-                    <Search className="absolute w-[1.8rem] h-[1.8rem] left-6 top-6 text-[#7C7C7C]" />
-                    <input
-                        className=" text-black bg-[#f6f6f6] bg-none outline-none ml-20 h-[1.8rem] text-[1.4rem] w-full"
-                        placeholder="Tìm kiếm..."
-                        value={keyword}
-                        onChange={(e) => setKeyword(e.target.value)}
-                        onKeyDown={handleSearch}
-                    />
-                    <X className="absolute w-[1.8rem] h-[1.8rem] right-6 top-6 text-[#7C7C7C] cursor-pointer" onClick={handleClearSearch}/> 
-                </div>
-                <div><p className="text-black text-[1.4rem] cursor-pointer select-none" onClick={() => setOpenBoxSearch(false)}>Đóng</p></div>
-              </div>
-            )
-          }
+        {openBoxSearch && (
+          <div
+            data-aos="fade-down"
+            style={{ boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.1)" }}
+            className="box-search h-[8.4rem] absolute bottom-[-8.4rem] left-0 right-0 flex justify-center items-center bg-white !z-[999] gap-16"
+          >
+            <div className="flex items-center relative w-[60%] h-[4.4rem] bg-[#f6f6f6] rounded-[2.8rem]">
+              <Search className="absolute w-[1.8rem] h-[1.8rem] left-6 top-6 text-[#7C7C7C]" />
+              <input
+                className=" text-black bg-[#f6f6f6] bg-none outline-none ml-20 h-[1.8rem] text-[1.4rem] w-full"
+                placeholder="Tìm kiếm..."
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+                onKeyDown={handleSearch}
+              />
+              <X
+                className="absolute w-[1.8rem] h-[1.8rem] right-6 top-6 text-[#7C7C7C] cursor-pointer"
+                onClick={handleClearSearch}
+              />
+            </div>
+            <div>
+              <p
+                className="text-black text-[1.4rem] cursor-pointer select-none"
+                onClick={() => setOpenBoxSearch(false)}
+              >
+                Đóng
+              </p>
+            </div>
+          </div>
+        )}
       </nav>
     </>
   );
@@ -323,7 +344,9 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-[1.4rem] leading-[2.1rem] font-medium">{title}</div>
+          <div className="text-[1.4rem] leading-[2.1rem] font-medium">
+            {title}
+          </div>
           <p className="line-clamp-2 text-[1.4rem] leading-[2.1rem] text-muted-foreground">
             {children}
           </p>

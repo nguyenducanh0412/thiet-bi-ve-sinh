@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 import AOSWrapper from "./aos-wrapper";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Thiết bị vệ sinh",
@@ -28,6 +29,7 @@ export default function RootLayout({
           <TanstackQueryProvider>
             <NavMenu />
             {children}
+            <Footer />
           </TanstackQueryProvider>
         </AOSWrapper>
       </body>

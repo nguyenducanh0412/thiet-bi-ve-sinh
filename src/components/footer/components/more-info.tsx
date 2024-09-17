@@ -33,7 +33,7 @@ const MoreInfo = (props: {
             </div>
 
             <Link
-              href={'#'}
+              href={"#"}
               className="w-[14.7rem] h-[5rem] text-[1.4rem] hover:!bg-white hover:opacity-95 font-semibold bg-white uppercase text-[#C51100] flex justify-center items-center rounded-[2.8rem]"
             >
               Tìm hiểu thêm
