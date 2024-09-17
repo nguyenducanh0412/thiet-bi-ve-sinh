@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
+import AOSWrapper from "./aos-wrapper";
 
 export const metadata: Metadata = {
   title: "Thiết bị vệ sinh",
@@ -23,10 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <TanstackQueryProvider>
-          <NavMenu />
-          {children}
-        </TanstackQueryProvider>
+        <AOSWrapper>
+          <TanstackQueryProvider>
+            <NavMenu />
+            {children}
+          </TanstackQueryProvider>
+        </AOSWrapper>
       </body>
     </html>
   );

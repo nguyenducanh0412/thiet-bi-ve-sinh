@@ -19,9 +19,37 @@
   }
 } */
 
+html {
+  font-size: 62.5%;
+  line-height: 1.4rem;
+  box-sizing: border-box;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
+  overflow-x: clip;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* style for scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px !important;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #808080;
+  border-radius: 20px;
 }
 
 @layer utilities {
