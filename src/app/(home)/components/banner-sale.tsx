@@ -14,7 +14,7 @@ const BannerSale = (props: {
       style={{
         backgroundImage: `url('${props.bgImg}')`,
       }}
-      className="bg-no-repeat bg-cover"
+      className="bg-no-repeat bg-cover bg-center"
     >
       <div className="container h-[23rem] flex flex-col gap-8 md:flex-row justify-center md:justify-between items-center mx-auto px-4">
         <div className="left-content text-white">

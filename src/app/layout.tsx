@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
-import AOSWrapper from "./aos-wrapper";
+import AOSProvider from "../providers/AOSProvider";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
@@ -25,13 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AOSWrapper>
+        <AOSProvider>
           <TanstackQueryProvider>
             <NavMenu />
             {children}
             <Footer />
           </TanstackQueryProvider>
-        </AOSWrapper>
+        </AOSProvider>
       </body>
     </html>
   );
