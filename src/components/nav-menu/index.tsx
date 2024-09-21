@@ -1,7 +1,7 @@
-import { Mail, Phone } from "lucide-react";
-import Nav from "./components/nav";
-import HotDeal from "./components/hot-deal";
+import { Mail, Phone } from "lucide-react"
 
+import HotDeal from "./components/hot-deal"
+import Nav from "./components/nav"
 
 const NavMenu = () => {
   return (
@@ -12,21 +12,25 @@ const NavMenu = () => {
             Showroom phục vụ từ 8h - 18h các ngày trong tuần, có chỗ để xe ô tô.
           </div>
           <div className="flex flex-col lg:flex-row lg:items-center lg:gap-4">
-            <div className="flex gap-2 items-center"> 
+            <div className="flex gap-2 items-center">
               <Mail className="h-[1.4rem] w-[1.4rem]" />
-              <h5 className="text-[1.4rem] lg:text-[1.6rem] leading-[2.4rem]">hoangmai.eco@gmail.com</h5>
+              <h5 className="text-[1.4rem] lg:text-[1.6rem] leading-[2.4rem]">
+                hoangmai.eco@gmail.com
+              </h5>
             </div>
-            <div className="flex gap-2 items-center"> 
+            <div className="flex gap-2 items-center">
               <Phone className="h-[1.4rem] w-[1.4rem]" />
-              <h5 className="text-[1.4rem] lg:text-[1.6rem] leading-[2.4rem]">Hotline 024 3634 1004</h5>
+              <h5 className="text-[1.4rem] lg:text-[1.6rem] leading-[2.4rem]">
+                Hotline 024 3634 1004
+              </h5>
             </div>
           </div>
         </div>
-        <Nav  />
+        <Nav />
         <HotDeal />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default NavMenu;
+export default NavMenu

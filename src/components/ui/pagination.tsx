@@ -1,18 +1,21 @@
 import * as React from "react"
+
+import { ButtonProps, buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
   DotsHorizontalIcon,
 } from "@radix-ui/react-icons"
 
-import { cn } from "@/lib/utils"
-import { ButtonProps, buttonVariants } from "@/components/ui/button"
-
 const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
   <nav
     role="navigation"
     aria-label="pagination"
-    className={cn("mx-auto flex w-full justify-center", className)}
+    className={cn(
+      "mx-auto flex w-full justify-center [&>*]:!text-[1.4rem]",
+      className
+    )}
     {...props}
   />
 )
@@ -24,7 +27,7 @@ const PaginationContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ul
     ref={ref}
-    className={cn("flex flex-row items-center gap-1", className)}
+    className={cn("flex flex-row items-center gap-1 ", className)}
     {...props}
   />
 ))
@@ -46,16 +49,17 @@ type PaginationLinkProps = {
 const PaginationLink = ({
   className,
   isActive,
-  size = "icon",
+  size = "lg",
   ...props
 }: PaginationLinkProps) => (
   <a
     aria-current={isActive ? "page" : undefined}
     className={cn(
       buttonVariants({
-        variant: isActive ? "outline" : "ghost",
+        variant: isActive ? "default" : "ghost",
         size,
       }),
+      `${isActive ? "bg-[#1E1E1E] text-white" : ""} w-[3.8rem] h-[3.8rem] flex items-center justify-center text-[1.6rem] font-[400]`,
       className
     )}
     {...props}
@@ -73,8 +77,7 @@ const PaginationPrevious = ({
     className={cn("gap-1 pl-2.5", className)}
     {...props}
   >
-    <ChevronLeftIcon className="h-4 w-4" />
-    <span>Previous</span>
+    <ChevronLeftIcon className="h-6 w-6" />
   </PaginationLink>
 )
 PaginationPrevious.displayName = "PaginationPrevious"
@@ -89,8 +92,7 @@ const PaginationNext = ({
     className={cn("gap-1 pr-2.5", className)}
     {...props}
   >
-    <span>Next</span>
-    <ChevronRightIcon className="h-4 w-4" />
+    <ChevronRightIcon className="h-6 w-6" />
   </PaginationLink>
 )
 PaginationNext.displayName = "PaginationNext"
@@ -104,7 +106,7 @@ const PaginationEllipsis = ({
     className={cn("flex h-9 w-9 items-center justify-center", className)}
     {...props}
   >
-    <DotsHorizontalIcon className="h-4 w-4" />
+    <DotsHorizontalIcon className="h-6 w-6" />
     <span className="sr-only">More pages</span>
   </span>
 )

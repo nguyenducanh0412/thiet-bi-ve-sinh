@@ -27,7 +27,7 @@ const News = (props: {
             </Link>
           </div>
         </div>
-        <div className="flex justify-center gap-x-4 gap-y-12 mt-[2rem] flex-wrap md:justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-[2rem] gap-x-4 gap-y-12">
           {/* {props.data.map((item) => (
             <NewsCard
               key={item.id}

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Calendar } from "lucide-react";
 
 const NewsCard = ({
@@ -12,17 +13,17 @@ const NewsCard = ({
 }) => {
   return (
       <div
-        className={`${direction === "vertical" ? "max-w-[31rem] flex-col" : "flex-row gap-x-[2rem]"} flex bg-white`}
+        className={`${direction === "vertical" ? "flex-col" : "flex-row gap-x-[2rem]"} flex bg-white`}
       >
-        <div className="mx-auto flex justify-center ">
+        <div className={`${direction === "vertical" ? 'w-full' : ''} mx-auto flex justify-center `}>
           <img
-            className={`${direction === "horizontal" ? "min-w-[30rem] max-w-[30rem] w-[30rem]" : ""}`}
+            className={`${direction === "horizontal" ? "min-w-[32rem] md:max-w-[32rem] w-[32rem]" : "w-full"}`}
             src={props.image}
             alt="news-img"
           />
         </div>
         <div className="news-content">
-          <div className="title text-[2rem] line-clamp-2 leading-[3rem] text-black mt-[1.2rem] mb-[0.5rem]">
+          <div className="title text-[1.8rem] line-clamp-2 leading-[2.6rem] text-black mt-[1.2rem] mb-[0.5rem]">
             {props.title}
           </div>
           <div className="time text-[1.4rem] font-[400] leading-[2.1rem] mb-[1.5rem] text-[#7C7C7C] flex items-center gap-2">

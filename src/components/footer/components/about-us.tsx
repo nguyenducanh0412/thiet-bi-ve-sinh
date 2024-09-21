@@ -13,7 +13,7 @@ const AboutUs = () => {
   };
   return (
     <>
-      <div className="bg-[#1E1E1E] border-y-[0.1rem] border-y-[#E5E5E5]">
+      <div className="bg-[#1E1E1E] border-y-[0.1rem] border-y-[#EDEDED]">
         <div className="container mx-auto">
           {/* about us */}
           <div className="about-us-info grid grid-flow-row grid-cols-3 gap-y-[3.2rem] lg:grid-cols-6 py-[4rem] px-4">
@@ -224,7 +224,7 @@ const AboutUs = () => {
           </div>
           {/* info bussiness */}
           <div className="px-4">
-            <div className="title py-[1.5rem] text-[1.4rem] leading-[2.1rem] font-[400] border-b-[0.1rem] border-b-[#E5E5E5] text-white">
+            <div className="title py-[1.5rem] text-[1.4rem] leading-[2.1rem] font-[400] border-b-[0.1rem] border-b-[#EDEDED] text-white">
               Thông tin doanh nghiệp:
             </div>
             <div className="info grid grid-flow-row grid-cols-2 lg:grid-cols-4 py-[1.5rem] gap-[3.2rem]">

@@ -11,6 +11,7 @@ const AOSProvider = ({ children }: { children: React.ReactNode }) => {
       easing: "ease-out-cubic",
       once: false,
       offset: 50,
+      mirror: true,
     });
   }, []);
 

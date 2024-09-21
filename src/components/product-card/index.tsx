@@ -1,29 +1,58 @@
+"use client"
+
 /* eslint-disable @next/next/no-img-element */
-import Link from "next/link";
+import { useState } from "react"
+
+import { Heart, ShoppingCart } from "lucide-react"
+import Link from "next/link"
+import { Button } from "../ui/button"
 
 export interface IProductCardProps {
-  type?: "default" | "link";
-  hover?: boolean;
+  type?: "default" | "link"
+  hover?: boolean
+  border?: boolean
   productInfo: {
-    image: string;
-    name: string;
-    price: number | string;
-    showTag?: boolean;
-    tagName?: string;
-  };
+    image: string
+    name: string
+    price: number | string
+    showTag?: boolean
+    tagName?: string
+  }
+  showActionsAtButtom?: boolean
 }
 
-const ProductCard = (props: IProductCardProps) => {
-  const Component = props.type === "link" ? Link : "div";
+const ProductCard = ({ type = "link", ...props }: IProductCardProps) => {
+  const Component = type === "link" ? Link : "div"
+
+  const [renderActions, setRenderActions] = useState(false)
+
+  const handleAddToCart = () => {
+    console.log("add to cart")
+  }
 
   return (
-    <Component
-      href={"#"}
-      className={`${props.hover ? "hover:shadow-[rgba(149,157,165,0.2)_0px_8px_24px] hover:border  hover:border-[#E5E5E5] hover:translate-y-[-0.5rem]" : ""} border border-[#EDEDED] rounded-[2px] overflow-hidden transition-all ease-linear delay-50 product-item block max-w-[30rem] bg-white`}
+    <div
+      className={`${props.hover ? "hover:shadow-[rgba(149,157,165,0.2)_0px_8px_24px] hover:border  hover:border-[#E5E5E5] hover:translate-y-[-0.5rem]" : ""}
+      ${props.showActionsAtButtom ? "hover:shadow-[rgba(255,255,255,0.1)_0px_0px_0px_1px_inset,rgba(0,0,0,0.5)_0px_0px_0px_1px] [&:hover>.action-at-buttom]:!flex min-h-[42rem]" : ""}
+      relative 
+      [&>.actions]:hover:!flex rounded-[2px] overflow-hidden transition-all ease-linear delay-50 product-item block max-w-[30rem] bg-white`}
+      onMouseLeave={() => {
+        if (!props.showActionsAtButtom) {
+          setRenderActions(false)
+        }
+      }}
+      onMouseEnter={() => {
+        if (!props.showActionsAtButtom) {
+          setRenderActions(true)
+        }
+      }}
     >
-      <div className="relative product-img p-[1.5rem] flex justify-center">
+      <Component
+        href={"#"}
+        className="relative product-img p-[1.5rem] flex justify-center"
+      >
         <img
-          className=""
+          className="cursor-pointer"
           src={props.productInfo.image || "/imgs/may-giat.png"}
           alt="product"
         />
@@ -40,19 +69,51 @@ const ProductCard = (props: IProductCardProps) => {
             ></div>
           </div>
         )}
-      </div>
+      </Component>
       <div className="product-info">
-        <div className="py-[2rem] px-[1.5rem]">
-          <div className=" font-[400] text-[#7C7C7C] product-name text-[1.6rem] leading-[2.4rem] mb-[1rem] line-clamp-2">
+        <div className="py-[1.2rem] px-[1.5rem]">
+          <Component
+            href={"#"}
+            className="hover:text-red-500 cursor-pointer transition-colors ease-linear delay-0 hover:font-semibold font-[400] text-[#7C7C7C] product-name text-[1.6rem] leading-[2.4rem] mb-[1rem] line-clamp-2"
+          >
             {props.productInfo.name}
-          </div>
-          <div className="product-price text-primary font-bold text-[1.8rem] leading-[2.8rem]">
+          </Component>
+          <div className="product-price truncate break-all text-primary font-bold text-[1.6rem] lg:text-[1.8rem] leading-[2.8rem]">
             {props.productInfo.price}
           </div>
         </div>
       </div>
-    </Component>
-  );
-};
 
-export default ProductCard;
+       {/* button actions */}
+       <div className="action-at-buttom justify-start items-center px-[1.5rem] pb-[1.2rem] hidden">
+        <Button onClick={handleAddToCart} className="w-[13.2rem] h-[3.8rem] bg-[#1E1E1E] flex items-center justify-center text-white rounded-[2.8rem] text-[1.4rem] leading-[2.1rem]">Thêm vào giỏ</Button>
+      </div>
+
+      {/* actions */}
+      {!props.showActionsAtButtom && renderActions && (
+        <div
+          data-aos="zoom-in"
+          className="actions hidden absolute top-[1rem] right-[1rem] actions flex-col gap-4 justify-end transition-all ease-linear delay-100"
+        >
+          <div className="cart cursor-pointer flex justify-end">
+            <div className="hover:opacity-70 bg-primary text-white cart-icon w-[max-content] p-2 rounded-[0.4rem] transition-all ease-linear delay-75">
+              <Heart />
+            </div>
+          </div>
+          <div className="cart cursor-pointer flex justify-end">
+            <div
+              onClick={handleAddToCart}
+              className="hover:opacity-70 bg-primary text-white cart-icon w-[max-content] p-2 rounded-[0.4rem] transition-all ease-linear delay-75"
+            >
+              <ShoppingCart />
+            </div>
+          </div>
+        </div>
+      )}
+
+     
+    </div>
+  )
+}
+
+export default ProductCard

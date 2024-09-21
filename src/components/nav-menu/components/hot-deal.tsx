@@ -11,7 +11,7 @@ const HotDeal = () => {
   return (
     <div
       // data-aos="fade-down"
-      className="h-[10rem] md:h-[9rem] bg-black flex flex-col lg:flex-row justify-center items-center gap-2 z-[100]"
+      className="h-[10rem] md:h-[9rem] bg-[rgba(0,0,0,0.8)] flex flex-col lg:flex-row justify-center items-center gap-2 z-[100] backdrop-opacity-95 bg-blend-overlay backdrop-invert"
     >
       <div className="flex items-center justify-center">
         <div className="hot-deal-icon">

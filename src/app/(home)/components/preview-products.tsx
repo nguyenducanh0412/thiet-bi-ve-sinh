@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import ProductCard from "@/components/product-card";
-import Link from "next/link";
+import ProductCard from "@/components/product-card"
+import Link from "next/link"
 
 interface IPrevieewProducts {
-  bannerPosition: "left" | "right";
-  title: string;
-  banner: string;
-  products: Record<string, unknown>[];
+  bannerPosition: "left" | "right"
+  title: string
+  banner: string
+  products: Record<string, unknown>[]
 }
 
 const PreviewProducts = (props: IPrevieewProducts) => {
@@ -50,8 +50,8 @@ const PreviewProducts = (props: IPrevieewProducts) => {
                 hover
                 productInfo={{
                   image: "/imgs/may-giat.png",
-                  name: "Sản phẩm 1",
-                  price: "10.000.000",
+                  name: "Máy giặt lồng ngang Malloca MWM-C1903E",
+                  price: "19,840,000 đ",
                 }}
               />
             ))}
@@ -59,6 +59,6 @@ const PreviewProducts = (props: IPrevieewProducts) => {
         </div>
       </div>
     </div>
-  );
-};
-export default PreviewProducts;
+  )
+}
+export default PreviewProducts

@@ -21,7 +21,6 @@
 
 html {
   font-size: 62.5%;
-  line-height: 1.4rem;
   box-sizing: border-box;
 }
 
@@ -30,6 +29,8 @@ body {
   background: var(--background);
   overflow-x: clip;
   font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
   text-rendering: optimizeLegibility;
 
   -webkit-font-smoothing: antialiased;
